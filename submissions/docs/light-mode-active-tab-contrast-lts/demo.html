@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Tab Light Mode Visibility Showcase — EaseMotion CSS</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Navigation Bar Replica -->
+    <nav class="demo-nav">
+        <div class="demo-nav-inner">
+            <a href="#" class="demo-logo">EaseMotion</a>
+            <ul class="demo-nav-links">
+                <li><a href="#buttons" class="active">Buttons</a></li>
+                <li><a href="#cards">Cards</a></li>
+                <li><a href="#animations">Animations</a></li>
+                <li><a href="#layout">Layout</a></li>
+                <li><a href="#">Docs</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+                        🌓
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Showcase -->
+    <main class="docs-content">
+        <section id="components" class="docs-section">
+            <h3 class="docs-h3">Active Tab Visibility Showcase</h3>
+            <p class="docs-p">
+                This demo showcases the fix for the active tab visibility bug in the top navigation bar when switching themes. 
+                Use the theme toggle button (🌓) in the top-right corner to switch between dark and light modes.
+            </p>
+            <p class="docs-p" style="margin-top: 1rem;">
+                In the bug, the active navigation tab's text and background colors are hardcoded, causing them to blend into the light mode page background. 
+                In this fix, we replace the hardcoded colors with theme variables so that the active tab's contrast stays perfect in both modes.
+            </p>
+        </section>
+    </main>
+
+    <script>
+        const themeBtn = document.getElementById("theme-toggle");
+        const html = document.documentElement;
+        themeBtn.addEventListener("click", () => {
+            const currentTheme = html.getAttribute("data-theme") || "dark";
+            const targetTheme = currentTheme === "light" ? "dark" : "light";
+            html.setAttribute("data-theme", targetTheme);
+        });
+    </script>
+</body>
+
+</html>
